@@ -46,7 +46,7 @@ jobs:
         run: nuget restore MjmlVisualizer.sln
 
       - name: Build VSIX
-        run: msbuild MjmlVisualizer.sln /t:Rebuild /p:Configuration=Release
+        run: msbuild MjmlVisualizer.sln /t:MjmlVisualizer.Vsix:Rebuild /p:Configuration=Release
         env: 
           DeployExtension: False
 
