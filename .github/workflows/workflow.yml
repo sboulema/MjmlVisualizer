@@ -53,9 +53,9 @@ jobs:
       - name: Publish Build Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: NuGetMonitor
+          name: MjmlVisualizer
           path: |
-            **/*.vsix
+            **/MjmlVisualizer.vsix
             src/MjmlVisualizer/bin/Release/MjmlVisualizer.dll
             src/MjmlVisualizer.Vsix/publish-manifest.json
             readme.md
