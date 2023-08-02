@@ -32,18 +32,12 @@ jobs:
           vsix-manifest-file: 'src/MjmlVisualizer.Vsix/source.extension.vsixmanifest'
 
       - name: Replace Placeholders
-        uses: Slidem/inplace-envsubst-action@v1.2.2
+        uses: cschleiden/replace-tokens@v1
+        with:
+          files: '["**/MjmlRepository.cs"]'
         env:
           MJML_USERNAME: ${{ secrets.MJML_USERNAME }}
           MJML_PASSWORD: ${{ secrets.MJML_PASSWORD }}
-        with:
-          working-directory: src/MjmlVisualizer/Repositories
-          fail-on-missing-variables: "true"
-          search_input: |
-            {
-              "files": ["MjmlRepository.cs"],
-              "depth": 1
-            }
 
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.1
