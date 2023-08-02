@@ -32,12 +32,15 @@ jobs:
           vsix-manifest-file: 'src/MjmlVisualizer.Vsix/source.extension.vsixmanifest'
 
       - name: Replace Placeholders
-        uses: LSVH/gha-replace-placeholders@v1
+        uses: sufyanadam/replace-placeholders@v3
         with:
-          include: 'src/MjmlVisualizer/Repositories/MjmlRepository.cs'
+          filename-pattern: 'MjmlRepository.cs'
+          search-directory: src/MjmlVisualizer/Repositories
           placeholders: |
-            MJML_USERNAME=${{ secrets.MJML_USERNAME }}
-            MJML_PASSWORD=${{ secrets.MJML_PASSWORD }}
+            {
+              "MJML_USERNAME": "${{ secrets.MJML_USERNAME }}"
+              "MJML_PASSWORD": "${{ secrets.MJML_PASSWORD }}"
+            }
 
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.1
@@ -83,7 +86,7 @@ jobs:
           tag: ${{ steps.tag_release.outputs.new_tag }}
           name: ${{ steps.tag_release.outputs.new_tag }}
           body: ${{ steps.tag_release.outputs.changelog }}
-          artifacts: "**/*.vsix"
+          artifacts: "**/*.vsix,**/MjmlVisualizer.dll"
           skipIfReleaseExists: true
           
       - name: Publish to Marketplace
