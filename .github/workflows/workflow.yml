@@ -55,8 +55,8 @@ jobs:
         with:
           name: MjmlVisualizer
           path: |
-            **/MjmlVisualizer.vsix
             src/MjmlVisualizer/bin/Release/MjmlVisualizer.dll
+            src/MjmlVisualizer.Vsix/bin/Release/MjmlVisualizer.vsix
             src/MjmlVisualizer.Vsix/publish-manifest.json
             readme.md
 

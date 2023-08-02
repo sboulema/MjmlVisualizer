@@ -1,6 +1,6 @@
 {
     "$schema": "http://json.schemastore.org/vsix-publish",
-    "categories": [ "debug" ],
+    "categories": [ "coding" ],
     "identity": {
         "internalName": "MjmlVisualizer"
     },
