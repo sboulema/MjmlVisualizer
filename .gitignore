@@ -1,0 +1,6 @@
+/packages
+/test/MjmlVisualizer.Test/test.mjml
+.vs
+bin
+obj
+*.user
