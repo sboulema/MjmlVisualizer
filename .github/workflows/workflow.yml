@@ -10,7 +10,7 @@ on:
 env:
   version: '1.0.${{ github.run_number }}'
   repoUrl: ${{ github.server_url }}/${{ github.repository }}
-  vsixPath: ${{ github.workspace }}/MjmlVisualizer/src/MjmlVisualizer.Vsix/bin/release/net48/win/MjmlVisualizer.vsix
+  vsixPath: ${{ github.workspace }}/MjmlVisualizer/src/MjmlVisualizer.Vsix/bin/release/MjmlVisualizer.vsix
 
 jobs:
   build:
@@ -56,7 +56,7 @@ jobs:
           name: NuGetMonitor
           path: |
             **/*.vsix
-            **/MjmlVisualizer.dll
+            src/MjmlVisualizer/bin/Release/MjmlVisualizer.dll
             src/MjmlVisualizer.Vsix/publish-manifest.json
             readme.md
 
