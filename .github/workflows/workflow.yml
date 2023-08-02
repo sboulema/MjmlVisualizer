@@ -38,7 +38,7 @@ jobs:
           search-directory: src/MjmlVisualizer/Repositories
           placeholders: |
             {
-              "MJML_USERNAME": "${{ secrets.MJML_USERNAME }}"
+              "MJML_USERNAME": "${{ secrets.MJML_USERNAME }}",
               "MJML_PASSWORD": "${{ secrets.MJML_PASSWORD }}"
             }
 
