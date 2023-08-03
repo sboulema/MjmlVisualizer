@@ -46,3 +46,5 @@ Uninstalling the extension will unfortunately not uninstall the MJML Visualizer.
 [Hex Visualizer](https://bitbucket.org/mmihajlovic/hex-visualizer/src/master/)
 
 [Walkthrough: Writing a Visualizer in C#](https://learn.microsoft.com/en-us/visualstudio/debugger/walkthrough-writing-a-visualizer-in-csharp?view=vs-2022)
+
+[Implementing a Custom Window Title Bar in WPF](https://engy.us/blog/2020/01/01/implementing-a-custom-window-title-bar-in-wpf/)
