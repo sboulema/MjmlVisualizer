@@ -36,6 +36,12 @@ namespace MjmlVisualizer.Vsix
 
                 // Get the destination folder for visualizers
                 var shell = await GetServiceAsync(typeof(SVsShell)) as IVsShell;
+
+                if (shell is null)
+                {
+                    return;
+                }
+
                 shell.GetProperty((int)__VSSPROPID2.VSSPROPID_VisualStudioDir, out var documentsFolderFullNameObject);
                 var documentsFolderFullName = documentsFolderFullNameObject.ToString();
                 var destinationFolderFullName = Path.Combine(documentsFolderFullName, "Visualizers");

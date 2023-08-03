@@ -39,18 +39,7 @@ namespace MjmlVisualizer
                     HTML = response.HTML.Trim()
                 };
 
-                new Window
-                {
-                    Title = "MJML Visualizer",
-                    MinWidth = 500,
-                    MinHeight = 500,
-                    Padding = new Thickness(5),
-                    Margin = new Thickness(5),
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                    Content = new MjmlVisualizerUserControl { DataContext = viewModel },
-                    VerticalContentAlignment = VerticalAlignment.Stretch,
-                    HorizontalContentAlignment = HorizontalAlignment.Stretch
-                }.ShowDialog();
+                new MjmlVisualizerWindow(viewModel).ShowDialog();
             }
             catch (Exception ex)
             {
