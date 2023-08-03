@@ -37,6 +37,10 @@ Uninstalling the extension will unfortunately not uninstall the MJML Visualizer.
 ## Screenshots
 [![Screenshot](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/Screenshot.png)](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/Screenshot.png)
 
+[![Screenshot](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/ScreenshotHTML.png)](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/ScreenshotHTML.png)
+
+[![Screenshot](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/ScreenshotPreview.png)](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/ScreenshotPreview.png)
+
 ## Links
 [Displaying html from string in WPF WebBrowser control](https://stackoverflow.com/questions/2585782/displaying-html-from-string-in-wpf-webbrowser-control)
 
