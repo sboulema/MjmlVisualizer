@@ -8,9 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("MjmlVisualizer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Louwman Group")]
 [assembly: AssemblyProduct("MjmlVisualizer")]
-[assembly: AssemblyCopyright("Copyright © Louwman Group 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
