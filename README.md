@@ -24,15 +24,15 @@ A Visual Studio extension that adds a debug visualizer to easily see MJML, HTML 
 [Open VSIX Gallery](https://www.vsixgallery.com/extension/MjmlVisualizer.771344e3-c441-46ee-88bd-2295144a2ef8)
 
 You can easily install the MJML Visualizer by using this Visual Studio extension,
-but you can also manually install the MJML Visualizer by copping the `MjmlVisualizer.dll` to 
+but you can also manually install the MJML Visualizer by copying the `MjmlVisualizer.dll` to 
 the following locations:
 - `<VisualStudioInstallPath>\Common7\Packages\Debugger\Visualizers`
-- `My Documents\<VisualStudioVersion>\Visualizers`
+- `%USERPROFILE%\Documents\Visual Studio <VisualStudioVersion>\Visualizers`
 
 ## Uninstalling
 Uninstalling the extension will unfortunately not uninstall the MJML Visualizer. Please manually delete the following files:
 - `<VisualStudioInstallPath>\Common7\Packages\Debugger\Visualizers\MjmlVisualizer.dll`
-- `My Documents\<VisualStudioVersion>\Visualizers\MjmlVisualizer.dll`
+- `%USERPROFILE%\Documents\Visual Studio <VisualStudioVersion>\Visualizers\MjmlVisualizer.dll`
 
 ## Screenshots
 [![Screenshot](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/Screenshot.png)](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/Screenshot.png)
