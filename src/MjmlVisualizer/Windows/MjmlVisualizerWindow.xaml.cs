@@ -1,4 +1,5 @@
-﻿using MjmlVisualizer.ViewModels;
+﻿using MjmlVisualizer.Helpers;
+using MjmlVisualizer.ViewModels;
 using System.IO;
 using System.Windows;
 using SaveFileDialog = System.Windows.Forms.SaveFileDialog;
@@ -55,5 +56,26 @@ namespace MjmlVisualizer.Windows
 
             File.WriteAllText(safeFileDialog.FileName, (DataContext as MjmlVisualizerViewModel).HTML);
         }
+
+        private void OnPreviewSaveButtonClick(object sender, RoutedEventArgs e)
+        {
+            var safeFileDialog = new SaveFileDialog
+            {
+                Filter = "JPEG Image|*.jpg",
+                Title = "Save a JPEG Image"
+            };
+
+            safeFileDialog.ShowDialog();
+
+            if (string.IsNullOrEmpty(safeFileDialog.FileName))
+            {
+                return;
+            }
+
+            WebBrowserHelper.TakeScreenshot(
+                safeFileDialog.FileName,
+                (DataContext as MjmlVisualizerViewModel).HTML,
+                PreviewWebBrowser.ActualWidth);
+        }       
     }
 }

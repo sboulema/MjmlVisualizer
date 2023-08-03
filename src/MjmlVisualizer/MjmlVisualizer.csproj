@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behaviors\BrowserBehavior.cs" />
+	<Compile Include="Helpers\WebBrowserHelper.cs" />
     <Compile Include="MjmlVisualizer.cs" />
     <Compile Include="Models\ResponseBody.cs" />
     <Compile Include="Models\RequestBody.cs" />

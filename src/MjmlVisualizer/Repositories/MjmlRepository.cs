@@ -10,8 +10,8 @@ namespace MjmlVisualizer.Repositories
     public class MjmlRepository
     {
         private const string _apiURL = "https://api.mjml.io/v1/render";
-        private const string _userName = "c4303cb3-7710-417d-9bc7-da57885b3432";
-        private const string _password = "acaca040-7197-4450-b057-5bb3465f3459";
+        private const string _userName = "#{MJML_USERNAME}#";
+        private const string _password = "#{MJML_PASSWORD}#";
         private readonly HttpClient _httpClient;
 
         public MjmlRepository()
