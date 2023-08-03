@@ -75,10 +75,11 @@
                     </Grid.RowDefinitions>
 
                     <TextBox
-                    Text="{Binding Path=MJML, Mode=OneWay}"
-                    HorizontalScrollBarVisibility="Auto"
-                    VerticalScrollBarVisibility="Auto"
-                    IsReadOnly="True">
+                        Text="{Binding Path=MJML, Mode=OneWay}"
+                        HorizontalScrollBarVisibility="Auto"
+                        VerticalScrollBarVisibility="Auto"
+                        IsReadOnly="True"
+                        FontFamily="'Cascadia Mono', 'Cascadia Code', Consolas, 'Courier New', monospace">
                         <TextBox.Style>
                             <Style TargetType="{x:Type TextBox}">
                                 <Style.Triggers>
@@ -90,7 +91,24 @@
                         </TextBox.Style>
                     </TextBox>
 
-                    <CheckBox Grid.Row="1" x:Name="MjmlWordWrap" Margin="0 10">Word Wrap</CheckBox>
+                    <Grid Grid.Row="1" Margin="0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <CheckBox
+                            x:Name="MjmlWordWrap"
+                            VerticalAlignment="Center">Word Wrap</CheckBox>
+
+                        <Button
+                            Grid.Column="2"
+                            Click="OnMjmlSaveButtonClick"
+                            Padding="22 6">
+                            Save
+                        </Button>
+                    </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="HTML">
@@ -101,10 +119,11 @@
                     </Grid.RowDefinitions>
 
                     <TextBox
-                    Text="{Binding Path=HTML, Mode=OneWay}"
-                    HorizontalScrollBarVisibility="Auto"
-                    VerticalScrollBarVisibility="Auto"
-                    IsReadOnly="True">
+                        Text="{Binding Path=HTML, Mode=OneWay}"
+                        HorizontalScrollBarVisibility="Auto"
+                        VerticalScrollBarVisibility="Auto"
+                        IsReadOnly="True"
+                        FontFamily="'Cascadia Mono', 'Cascadia Code', Consolas, 'Courier New', monospace">
                         <TextBox.Style>
                             <Style TargetType="{x:Type TextBox}">
                                 <Style.Triggers>
@@ -116,7 +135,24 @@
                         </TextBox.Style>
                     </TextBox>
 
-                    <CheckBox Grid.Row="1" x:Name="HtmlWordWrap" Margin="0 10">Word Wrap</CheckBox>
+                    <Grid Grid.Row="1" Margin="0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <CheckBox
+                            x:Name="HtmlWordWrap"
+                            VerticalAlignment="Center">Word Wrap</CheckBox>
+
+                        <Button
+                            Grid.Column="2"
+                            Click="OnHtmlSaveButtonClick"
+                            Padding="22 6">
+                            Save
+                        </Button>
+                    </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="Preview">
