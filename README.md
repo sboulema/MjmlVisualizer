@@ -9,6 +9,9 @@ A Visual Studio extension that adds a debug visualizer to easily see MJML, HTML 
 - View HTML
 - View rendered HTML
 - Optional word wrap
+- Save MJML to file
+- Save HTML to file
+- Save screenshot of rendered HTML to file
 
 ## Support
 - Visual Studio 2022
@@ -48,3 +51,5 @@ Uninstalling the extension will unfortunately not uninstall the MJML Visualizer.
 [Walkthrough: Writing a Visualizer in C#](https://learn.microsoft.com/en-us/visualstudio/debugger/walkthrough-writing-a-visualizer-in-csharp?view=vs-2022)
 
 [Implementing a Custom Window Title Bar in WPF](https://engy.us/blog/2020/01/01/implementing-a-custom-window-title-bar-in-wpf/)
+
+[Obtain full-page screenshot from WebBrower component](https://stackoverflow.com/questions/28222923/obtain-full-page-screenshot-from-webbrower-component)
