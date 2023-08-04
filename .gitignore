@@ -4,3 +4,5 @@
 bin
 obj
 *.user
+/src/MjmlVisualizer/Properties/Settings.Debug.settings
+/src/MjmlVisualizer/Properties/Settings.settings

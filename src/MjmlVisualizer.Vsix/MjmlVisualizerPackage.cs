@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -23,6 +24,8 @@ namespace MjmlVisualizer.Vsix
 
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
+            var fileNames = new List<string> { "MjmlVisualizer.dll", "Newtonsoft.Json.dll" };
+
             try
             {
                 await base.InitializeAsync(cancellationToken, progress);
@@ -46,11 +49,13 @@ namespace MjmlVisualizer.Vsix
                 var documentsFolderFullName = documentsFolderFullNameObject.ToString();
                 var destinationFolderFullName = Path.Combine(documentsFolderFullName, "Visualizers");
 
-                var sourceFileFullName = Path.Combine(sourceFolderFullName, "MjmlVisualizer.dll");
-                var destinationFileFullName = Path.Combine(destinationFolderFullName, "MjmlVisualizer.dll");
+                foreach (var fileName in fileNames)
+                {
+                    var sourceFileFullName = Path.Combine(sourceFolderFullName, fileName);
+                    var destinationFileFullName = Path.Combine(destinationFolderFullName, fileName);
 
-                CopyFileIfNewerVersion(sourceFileFullName, destinationFileFullName);
-
+                    CopyFileIfNewerVersion(sourceFileFullName, destinationFileFullName);
+                }
             }
             catch (Exception ex)
             {

@@ -1,13 +1,13 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace MjmlVisualizer.Models
 {
     public class ResponseBody
     {
-        [JsonPropertyName("mjml")]
+        [JsonProperty("mjml")]
         public string MJML { get; set; } = string.Empty;
 
-        [JsonPropertyName("html")]
+        [JsonProperty("html")]
         public string HTML { get; set; } = string.Empty;
     }
 }

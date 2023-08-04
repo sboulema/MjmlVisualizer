@@ -25,7 +25,7 @@ namespace MjmlVisualizer
             {
                 var debugObject = (objectProvider as IVisualizerObjectProvider3).GetDeserializableObject();
 
-                var response = new MjmlRepository().GenerateHTML(debugObject.ToObject<string>());
+                var response = MjmlRepository.GenerateHTML(debugObject.ToObject<string>()).Result;
 
                 if (response == null)
                 {
