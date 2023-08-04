@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Threading.Tasks;
 using Task = System.Threading.Tasks.Task;
 
 namespace MjmlVisualizer.Vsix
@@ -29,30 +30,18 @@ namespace MjmlVisualizer.Vsix
             try
             {
                 await base.InitializeAsync(cancellationToken, progress);
-
-                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-
+           
                 // The Visualizer dll is in the same folder than the package because its project is
                 // added as reference to this project, so it is included inside the .vsix file.
                 // We only need to deploy it to the correct destination folder.
-                var sourceFolderFullName = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                var sourceFolderPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
-                // Get the destination folder for visualizers
-                var shell = await GetServiceAsync(typeof(SVsShell)) as IVsShell;
-
-                if (shell is null)
-                {
-                    return;
-                }
-
-                shell.GetProperty((int)__VSSPROPID2.VSSPROPID_VisualStudioDir, out var documentsFolderFullNameObject);
-                var documentsFolderFullName = documentsFolderFullNameObject.ToString();
-                var destinationFolderFullName = Path.Combine(documentsFolderFullName, "Visualizers");
+                var destinationFolderPath = await GetVisualizersDirectory(cancellationToken);
 
                 foreach (var fileName in fileNames)
                 {
-                    var sourceFileFullName = Path.Combine(sourceFolderFullName, fileName);
-                    var destinationFileFullName = Path.Combine(destinationFolderFullName, fileName);
+                    var sourceFileFullName = Path.Combine(sourceFolderPath, fileName);
+                    var destinationFileFullName = Path.Combine(destinationFolderPath, fileName);
 
                     CopyFileIfNewerVersion(sourceFileFullName, destinationFileFullName);
                 }
@@ -69,17 +58,10 @@ namespace MjmlVisualizer.Vsix
 
             if (File.Exists(destinationFileFullName))
             {
-                var sourceFileVersionInfo = FileVersionInfo.GetVersionInfo(sourceFileFullName);
-                var destinationFileVersionInfo = FileVersionInfo.GetVersionInfo(destinationFileFullName);
-                if (sourceFileVersionInfo.FileMajorPart > destinationFileVersionInfo.FileMajorPart)
-                {
-                    copy = true;
-                }
-                else if (sourceFileVersionInfo.FileMajorPart == destinationFileVersionInfo.FileMajorPart
-                   && sourceFileVersionInfo.FileMinorPart > destinationFileVersionInfo.FileMinorPart)
-                {
-                    copy = true;
-                }
+                var sourceVersion = GetVersion(sourceFileFullName);
+                var destinationVersion = GetVersion(destinationFileFullName);
+
+                copy = sourceVersion > destinationVersion;
             }
             else
             {
@@ -91,6 +73,27 @@ namespace MjmlVisualizer.Vsix
             {
                 File.Copy(sourceFileFullName, destinationFileFullName, true);
             }
+        }
+
+        private static Version GetVersion(string path)
+        {
+            var fileVersionInfo = FileVersionInfo.GetVersionInfo(path);
+            return new Version(fileVersionInfo.FileVersion);
+        }
+
+        private async Task<string> GetVisualizersDirectory(CancellationToken cancellationToken)
+        {
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
+
+            if (!(await GetServiceAsync(typeof(SVsShell)) is IVsShell shell))
+            {
+                return string.Empty;
+            }
+
+            // Get the destination folder for visualizers
+            shell.GetProperty((int)__VSSPROPID2.VSSPROPID_VisualStudioDir, out var documentsFolderFullNameObject);
+
+            return Path.Combine(documentsFolderFullNameObject.ToString(), "Visualizers");
         }
     }
 }
