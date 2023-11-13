@@ -25,18 +25,9 @@ namespace MjmlVisualizer
             {
                 var debugObject = (objectProvider as IVisualizerObjectProvider3).GetDeserializableObject();
 
-                var response = MjmlRepository.GenerateHTML(debugObject.ToObject<string>()).Result;
-
-                if (response == null)
-                {
-                    MessageBox.Show("String could not be converted");
-                    return;
-                }
-
                 var viewModel = new MjmlVisualizerViewModel
                 {
-                    MJML = response.MJML.Trim(),
-                    HTML = response.HTML.Trim()
+                    MJML = debugObject.ToObject<string>()
                 };
 
                 new MjmlVisualizerWindow(viewModel).ShowDialog();

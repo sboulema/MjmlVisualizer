@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:behaviors="clr-namespace:MjmlVisualizer.Behaviors"
+        xmlns:windows="clr-namespace:MjmlVisualizer.Windows"
         mc:Ignorable="d"
         WindowStyle="None"
         Background="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
@@ -18,7 +18,6 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../Styles/TitleBarButtonStyle.xaml" />
                 <ResourceDictionary Source="../Styles/TitleBarCloseButtonStyle.xaml" />
-                <ResourceDictionary Source="../Styles/TabItemStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -67,135 +66,6 @@
             </Button>
         </Grid>
 
-        <TabControl Grid.Row="1" Background="Transparent" BorderThickness="0">
-            <TabItem Header="MJML" Style="{StaticResource TabItemStyle}">
-                <Grid Margin="0 -2 0 0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    
-                    <Border BorderThickness="0, 2, 0, 0" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}">
-                        <Border BorderThickness="1, 0, 1, 1" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
-                            <TextBox
-                                Text="{Binding Path=MJML, Mode=OneWay}"
-                                HorizontalScrollBarVisibility="Auto"
-                                VerticalScrollBarVisibility="Auto"
-                                IsReadOnly="True"
-                                FontFamily="'Cascadia Mono', 'Cascadia Code', Consolas, 'Courier New', monospace"
-                                BorderThickness="0">
-                                <TextBox.Style>
-                                    <Style TargetType="{x:Type TextBox}">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding IsChecked, ElementName=MjmlWordWrap}" Value="True">
-                                                <Setter Property="TextWrapping" Value="Wrap" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
-                        </Border>
-                    </Border>
-
-                    <Grid Grid.Row="1" Margin="0 10">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-
-                        <CheckBox
-                            x:Name="MjmlWordWrap"
-                            VerticalAlignment="Center">Word Wrap</CheckBox>
-
-                        <Button
-                            Grid.Column="2"
-                            Click="OnMjmlSaveButtonClick"
-                            Padding="22 6">
-                            Save
-                        </Button>
-                    </Grid>
-                </Grid>
-            </TabItem>
-            
-            <TabItem Header="HTML" Style="{StaticResource TabItemStyle}">
-                <Grid Margin="0 -2 0 0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <Border BorderThickness="0, 2, 0, 0" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}">
-                        <Border BorderThickness="1, 0, 1, 1" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
-                            <TextBox
-                                Text="{Binding Path=HTML, Mode=OneWay}"
-                                HorizontalScrollBarVisibility="Auto"
-                                VerticalScrollBarVisibility="Auto"
-                                IsReadOnly="True"
-                                FontFamily="'Cascadia Mono', 'Cascadia Code', Consolas, 'Courier New', monospace"
-                                BorderThickness="0">
-                                <TextBox.Style>
-                                    <Style TargetType="{x:Type TextBox}">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding IsChecked, ElementName=HtmlWordWrap}" Value="True">
-                                                <Setter Property="TextWrapping" Value="Wrap" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
-                        </Border>
-                    </Border>
-
-                    <Grid Grid.Row="1" Margin="0 10">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-
-                        <CheckBox
-                            x:Name="HtmlWordWrap"
-                            VerticalAlignment="Center">Word Wrap</CheckBox>
-
-                        <Button
-                            Grid.Column="2"
-                            Click="OnHtmlSaveButtonClick"
-                            Padding="22 6">
-                            Save
-                        </Button>
-                    </Grid>
-                </Grid>
-            </TabItem>
-
-            <TabItem Header="Preview"  Style="{StaticResource TabItemStyle}">
-                <Grid Margin="0 -2 0 0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <Border BorderThickness="0, 2, 0, 0" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}">
-                        <Border BorderThickness="1, 0, 1, 1" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
-                            <WebBrowser x:Name="PreviewWebBrowser" behaviors:BrowserBehavior.Html="{Binding HTML}" />
-                        </Border>
-                    </Border>
-
-                    <Grid Grid.Row="1" Margin="0 10">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-
-                        <Button
-                            Grid.Column="2"
-                            Click="OnPreviewSaveButtonClick"
-                            Padding="22 6">
-                            Save
-                        </Button>
-                    </Grid>
-                </Grid>
-            </TabItem>
-        </TabControl>
+        <windows:MjmlVisualizerControl Grid.Row="1" IsReadOnly="True"></windows:MjmlVisualizerControl>
     </Grid>
 </Window>

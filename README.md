@@ -12,6 +12,7 @@ A Visual Studio extension that adds a debug visualizer to easily see MJML, HTML 
 - Save MJML to file
 - Save HTML to file
 - Save screenshot of rendered HTML to file
+- Easy tool window (`View -> Other Windows -> MJML Visualizer`)
 
 ## Support
 - Visual Studio 2022
@@ -40,6 +41,9 @@ Uninstalling the extension will unfortunately not uninstall the MJML Visualizer.
 [![Screenshot](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/ScreenshotHTML.png)](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/ScreenshotHTML.png)
 
 [![Screenshot](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/ScreenshotPreview.png)](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/ScreenshotPreview.png)
+
+## Privacy
+The MJML code is sent to the official [MJML API](https://mjml.io/api) for converting.
 
 ## Links
 [Displaying html from string in WPF WebBrowser control](https://stackoverflow.com/questions/2585782/displaying-html-from-string-in-wpf-webbrowser-control)

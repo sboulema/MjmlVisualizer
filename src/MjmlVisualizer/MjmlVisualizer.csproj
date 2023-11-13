@@ -72,6 +72,9 @@
     </Compile>
     <Compile Include="Repositories\MjmlRepository.cs" />
     <Compile Include="ViewModels\MjmlVisualizerViewModel.cs" />
+    <Compile Include="Windows\MjmlVisualizerControl.xaml.cs">
+      <DependentUpon>MjmlVisualizerControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MjmlVisualizerWindow.xaml.cs">
       <DependentUpon>MjmlVisualizerWindow.xaml</DependentUpon>
     </Compile>
@@ -100,20 +103,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\MjmlVisualizerControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\MjmlVisualizerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
-	<Target Name="CopySettings" BeforeTargets="BeforeBuild">
-		<Message Text="Copying Settings" />
-		<Copy SourceFiles="Properties/Settings.Debug.settings"
-			  DestinationFiles="Properties/Settings.settings"
-		      Condition="'$(Configuration)' == 'Debug'" />
-		<Copy SourceFiles="Properties/Settings.Release.settings"
-			  DestinationFiles="Properties/Settings.settings"
-			  Condition="'$(Configuration)' == 'Release'" />
-	</Target>
+  <Target Name="CopySettings" BeforeTargets="BeforeBuild">
+    <Message Text="Copying Settings" />
+    <Copy SourceFiles="Properties/Settings.Debug.settings" DestinationFiles="Properties/Settings.settings" Condition="'$(Configuration)' == 'Debug'" />
+    <Copy SourceFiles="Properties/Settings.Release.settings" DestinationFiles="Properties/Settings.settings" Condition="'$(Configuration)' == 'Release'" />
+  </Target>
 </Project>

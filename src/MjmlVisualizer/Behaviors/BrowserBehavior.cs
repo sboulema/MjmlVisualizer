@@ -24,8 +24,15 @@ namespace MjmlVisualizer.Behaviors
 
         static void OnHtmlChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
+            var text = e.NewValue as string;
+
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
+
             var webBrowser = dependencyObject as WebBrowser;
-            webBrowser?.NavigateToString(e.NewValue as string ?? "&nbsp;");
+            webBrowser?.NavigateToString(text);
         }
     }
 }
