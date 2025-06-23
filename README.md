@@ -24,26 +24,12 @@ A Visual Studio extension that adds a debug visualizer to easily see MJML, HTML 
 
 [Open VSIX Gallery](https://www.vsixgallery.com/extension/MjmlVisualizer.771344e3-c441-46ee-88bd-2295144a2ef8)
 
-You can easily install the MJML Visualizer by using this Visual Studio extension,
-but you can also manually install the MJML Visualizer by copying the `MjmlVisualizer.dll` to 
-the following locations:
-- `<VisualStudioInstallPath>\Common7\Packages\Debugger\Visualizers`
-- `%USERPROFILE%\Documents\Visual Studio <VisualStudioVersion>\Visualizers`
-
-## Uninstalling
-Uninstalling the extension will unfortunately not uninstall the MJML Visualizer. Please manually delete the following files:
-- `<VisualStudioInstallPath>\Common7\Packages\Debugger\Visualizers\MjmlVisualizer.dll`
-- `%USERPROFILE%\Documents\Visual Studio <VisualStudioVersion>\Visualizers\MjmlVisualizer.dll`
-
 ## Screenshots
 [![Screenshot](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/Screenshot.png)](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/Screenshot.png)
 
 [![Screenshot](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/ScreenshotHTML.png)](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/ScreenshotHTML.png)
 
 [![Screenshot](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/ScreenshotPreview.png)](https://raw.githubusercontent.com/sboulema/MjmlVisualizer/main/art/ScreenshotPreview.png)
-
-## Privacy
-The MJML code is sent to the official [MJML API](https://mjml.io/api) for converting.
 
 ## Links
 [Displaying html from string in WPF WebBrowser control](https://stackoverflow.com/questions/2585782/displaying-html-from-string-in-wpf-webbrowser-control)
@@ -61,3 +47,5 @@ The MJML code is sent to the official [MJML API](https://mjml.io/api) for conver
 [Implementing a Custom Window Title Bar in WPF](https://engy.us/blog/2020/01/01/implementing-a-custom-window-title-bar-in-wpf/)
 
 [Obtain full-page screenshot from WebBrower component](https://stackoverflow.com/questions/28222923/obtain-full-page-screenshot-from-webbrower-component)
+
+[wkhtmltoimage](https://wkhtmltopdf.org/index.html)
