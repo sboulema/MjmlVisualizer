@@ -12,7 +12,6 @@ A Visual Studio extension that adds a debug visualizer to easily see MJML, HTML 
 - Save MJML to file
 - Save HTML to file
 - Save screenshot of rendered HTML to file
-- Easy tool window (`View -> Other Windows -> MJML Visualizer`)
 
 ## Support
 - Visual Studio 2022

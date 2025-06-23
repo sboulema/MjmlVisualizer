@@ -54,15 +54,6 @@ public class MjmlVisualizerViewModel : NotifyPropertyChangedObject
         set => SetProperty(ref _html, value);
     }
 
-    private double _width = 1024;
-
-    [DataMember]
-    public double Width
-    {
-        get => _width;
-        set => SetProperty(ref _width, value);
-    }
-
     private string _tempHtmlPath = string.Empty;
 
     [DataMember]

@@ -1,4 +1,4 @@
-name: MjmlVisualizer
+﻿name: MjmlVisualizer
 
 on:
   push:
@@ -15,7 +15,7 @@ env:
 
 jobs:
   build:
-    name: Build
+    name: 🛠️ Build
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -40,7 +40,7 @@ jobs:
 
   release:
     if: github.ref_name == 'main'
-    name: Release
+    name: 🚀 Release
     needs: build
     runs-on: windows-latest
     environment: Release
