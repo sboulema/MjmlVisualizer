@@ -9,9 +9,9 @@ on:
 
 env:
   version: '2.0.${{ github.run_number }}'
+  dotnetVersion: '8'
   repoUrl: ${{ github.server_url }}/${{ github.repository }}
   vsixPath: ${{ github.workspace }}/src/bin/Release/net${{ env.dotnetVersion }}.0-windows${{ env.dotnetVersion }}.0/MjmlVisualizer.vsix
-  dotnetVersion: '8'
 
 jobs:
   build:
