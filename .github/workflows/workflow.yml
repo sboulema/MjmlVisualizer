@@ -47,6 +47,8 @@ jobs:
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
 
       - name: Tag release
         id: tag_release
