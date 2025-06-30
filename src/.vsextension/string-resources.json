@@ -1,0 +1,6 @@
+{
+  "MjmlVisualizer.MjmlDebuggerVisualizerProvider.DisplayName": "MJML Visualizer",
+  "MjmlVisualizer.SettingDefinitions.GeneralCategory": "General",
+  "MjmlVisualizer.SettingDefinitions.MjmlApiUserNameCategory": "MJML API user name",
+  "MjmlVisualizer.SettingDefinitions.MjmlApiPasswordCategory": "MJML API password"
+}

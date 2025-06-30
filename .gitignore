@@ -1,8 +1,10 @@
-/packages
-/test/MjmlVisualizer.Test/test.mjml
-.vs
-bin
-obj
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/src/bin
+/src/obj
 *.user
-/src/MjmlVisualizer/Properties/Settings.Debug.settings
-/src/MjmlVisualizer/Properties/Settings.settings
+/test/bin
+/test/obj

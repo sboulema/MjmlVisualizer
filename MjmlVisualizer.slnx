@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/MjmlVisualizer.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/MjmlVisualizer.Test.csproj" />
+  </Folder>
+</Solution>
