@@ -130,6 +130,7 @@
                         <wv2:WebView2
                             Name="webView"
                             Source="{Binding Path=TempHTMLPath}"
+                            DefaultBackgroundColor="{DynamicResource {x:Static styles:VsBrushes.BackgroundKey}}"
                             CreationProperties="{StaticResource MjmlVisualizerCreationProperties}"/>
                     </Border>
                 </Border>
