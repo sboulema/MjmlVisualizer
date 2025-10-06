@@ -23,6 +23,7 @@ internal class MjmlVisualizerExtension : Extension
             //License = "Resources/License.txt",
             Icon = "Resources/Logo_90x90.png",
             PreviewImage = "Resources/ScreenshotPreview.png",
+            InstallationTargetVersion = "[17.14,19.0)",
         },
     };
 
