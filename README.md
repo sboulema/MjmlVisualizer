@@ -15,6 +15,7 @@ A Visual Studio extension that adds a debug visualizer to easily see MJML, HTML 
 
 ## Support
 - Visual Studio 2022
+- Visual Studio 2026
 
 ## Installing
 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SamirBoulema.MjmlVisualizer) [![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/v/SamirBoulema.MjmlVisualizer.svg?style=flat)](https://marketplace.visualstudio.com/items?itemName=SamirBoulema.MjmlVisualizer)
